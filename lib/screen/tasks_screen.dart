@@ -127,7 +127,7 @@ class _TasksScreenState extends State<TasksScreen> {
                             MyCustomizedButton(
                               buttonIcon: Icons.add,
                               whenPressed: () {},
-                              backgroundColor: Colors.black54,
+                              backgroundColor: Colors.lightBlueAccent,
                               iconColor: Colors.white,
                             )
                           ],
