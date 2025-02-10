@@ -19,6 +19,7 @@ class MyCustomizedButton extends StatelessWidget {
     return RawMaterialButton(
       shape: CircleBorder(),
       fillColor: backgroundColor,
+      elevation: 10.0,
       constraints: BoxConstraints.tightFor(
         width: 56.0,
         height: 56.0,
@@ -29,6 +30,7 @@ class MyCustomizedButton extends StatelessWidget {
         child: Icon(
           buttonIcon,
           color: iconColor,
+          size: 35,
         ),
       ),
     );

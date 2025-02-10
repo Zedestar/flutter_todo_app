@@ -36,11 +36,41 @@ class _TasksScreenState extends State<TasksScreen> {
                 flex: 3,
                 child: Material(
                   color: Colors.lightBlueAccent,
-                  child: Column(
-                    children: [
-                      Text("Task 1"),
-                      Text("Task 2"),
-                    ],
+                  child: Padding(
+                    padding: const EdgeInsets.all(50.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        MyCustomizedButton(
+                          buttonIcon: Icons.menu,
+                          whenPressed: () {},
+                          backgroundColor: Colors.white,
+                          iconColor: Colors.lightBlueAccent,
+                        ),
+                        SizedBox(
+                          height: 20.0,
+                        ),
+                        Text(
+                          "My Todos",
+                          style: TextStyle(
+                            fontSize: 30.0,
+                            fontWeight: FontWeight.w900,
+                            color: Colors.white,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 1.0,
+                        ),
+                        Text(
+                          "12 Tasks",
+                          style: TextStyle(
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
