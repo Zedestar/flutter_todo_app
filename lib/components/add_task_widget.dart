@@ -23,7 +23,15 @@ class BottomTaskAdd extends StatelessWidget {
           SizedBox(
             height: 10.0,
           ),
-          TextField(),
+          TextField(
+            decoration: InputDecoration(
+              hintText: "Add here the task to be added",
+              hintStyle: TextStyle(
+                fontSize: 15,
+              ),
+              border: OutlineInputBorder(),
+            ),
+          ),
           SizedBox(
             height: 20.0,
           ),
