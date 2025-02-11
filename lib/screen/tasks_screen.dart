@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/components/add_task_widget.dart';
 import 'package:todo_app/components/customezed_button.dart';
 import 'package:todo_app/components/expanded_widget.dart';
 import 'package:todo_app/components/task_tile.dart';
@@ -107,41 +108,6 @@ class _TasksScreenState extends State<TasksScreen> {
                                   isTaskChecked: false,
                                   onPressingTask: (isTaskChecked) {},
                                 ),
-                                TaskTile(
-                                  taskName: "Taking my Assignment",
-                                  isTaskChecked: false,
-                                  onPressingTask: (isTaskChecked) {},
-                                ),
-                                TaskTile(
-                                  taskName: "Taking my Assignment",
-                                  isTaskChecked: false,
-                                  onPressingTask: (isTaskChecked) {},
-                                ),
-                                TaskTile(
-                                  taskName: "Taking my Assignment",
-                                  isTaskChecked: false,
-                                  onPressingTask: (isTaskChecked) {},
-                                ),
-                                TaskTile(
-                                  taskName: "Taking my Assignment",
-                                  isTaskChecked: false,
-                                  onPressingTask: (isTaskChecked) {},
-                                ),
-                                TaskTile(
-                                  taskName: "Taking my Assignment",
-                                  isTaskChecked: false,
-                                  onPressingTask: (isTaskChecked) {},
-                                ),
-                                TaskTile(
-                                  taskName: "Taking my Assignment",
-                                  isTaskChecked: false,
-                                  onPressingTask: (isTaskChecked) {},
-                                ),
-                                TaskTile(
-                                  taskName: "Taking my Assignment",
-                                  isTaskChecked: false,
-                                  onPressingTask: (isTaskChecked) {},
-                                ),
                               ],
                             ),
                           ),
@@ -151,7 +117,12 @@ class _TasksScreenState extends State<TasksScreen> {
                           children: [
                             MyCustomizedButton(
                               buttonIcon: Icons.add,
-                              whenPressed: () {},
+                              whenPressed: () {
+                                showModalBottomSheet(
+                                  context: context,
+                                  builder: (context) => BottomTaskAdd(),
+                                );
+                              },
                               backgroundColor: Colors.lightBlueAccent,
                               iconColor: Colors.white,
                             )
