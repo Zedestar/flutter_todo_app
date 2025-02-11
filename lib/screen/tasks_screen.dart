@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/components/add_task_widget.dart';
 import 'package:todo_app/components/customezed_button.dart';
-import 'package:todo_app/components/expanded_widget.dart';
 import 'package:todo_app/components/task_tile.dart';
 
 class TasksScreen extends StatefulWidget {
@@ -12,7 +11,7 @@ class TasksScreen extends StatefulWidget {
 }
 
 class _TasksScreenState extends State<TasksScreen> {
-  bool isChecked = true;
+  bool? isChecked = true;
 
   void togglingCheckedButton(bool? value) {
     setState(() {
@@ -100,13 +99,9 @@ class _TasksScreenState extends State<TasksScreen> {
                               children: <Widget>[
                                 TaskTile(
                                   taskName: "Taking my Assignment",
-                                  isTaskChecked: false,
-                                  onPressingTask: (isTaskChecked) {},
                                 ),
                                 TaskTile(
                                   taskName: "Taking my Assignment",
-                                  isTaskChecked: false,
-                                  onPressingTask: (isTaskChecked) {},
                                 ),
                               ],
                             ),
