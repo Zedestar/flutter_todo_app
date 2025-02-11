@@ -94,116 +94,61 @@ class _TasksScreenState extends State<TasksScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Expanded(
-                          child: ListView(
-                            children: <Widget>[
-                              ListTile(
-                                leading: Icon(Icons.map),
-                                title: Text('Map'),
-                                trailing: Checkbox(
-                                  value: true,
-                                  onChanged: (bool? value) {
-                                    value = false;
-                                    print("On changed button was pressed");
-                                  },
+                          child: Scrollbar(
+                            child: ListView(
+                              children: <Widget>[
+                                TaskTile(
+                                  taskName: "Taking my Assignment",
+                                  isTaskChecked: false,
+                                  onPressingTask: (isTaskChecked) {},
                                 ),
-                              ),
-                              ListTile(
-                                leading: Icon(Icons.photo_album),
-                                title: Text('Album'),
-                                trailing: Checkbox(
-                                  value: true,
-                                  onChanged: (onChanged) {},
+                                TaskTile(
+                                  taskName: "Taking my Assignment",
+                                  isTaskChecked: false,
+                                  onPressingTask: (isTaskChecked) {},
                                 ),
-                              ),
-                              ListTile(
-                                leading: Icon(Icons.phone),
-                                title: Text('Phone'),
-                                trailing: Checkbox(
-                                  value: false,
-                                  onChanged: (onChanged) {},
+                                TaskTile(
+                                  taskName: "Taking my Assignment",
+                                  isTaskChecked: false,
+                                  onPressingTask: (isTaskChecked) {},
                                 ),
-                              ),
-                              ListTile(
-                                leading: Icon(Icons.map),
-                                title: Text('Map'),
-                                trailing: Checkbox(
-                                  value: true,
-                                  onChanged: (onChanged) {},
+                                TaskTile(
+                                  taskName: "Taking my Assignment",
+                                  isTaskChecked: false,
+                                  onPressingTask: (isTaskChecked) {},
                                 ),
-                              ),
-                              ListTile(
-                                leading: Icon(Icons.photo_album),
-                                title: Text('Album'),
-                                trailing: Checkbox(
-                                  value: true,
-                                  onChanged: (onChanged) {},
+                                TaskTile(
+                                  taskName: "Taking my Assignment",
+                                  isTaskChecked: false,
+                                  onPressingTask: (isTaskChecked) {},
                                 ),
-                              ),
-                              ListTile(
-                                leading: Icon(Icons.phone),
-                                title: Text('Phone'),
-                                trailing: Checkbox(
-                                  value: false,
-                                  onChanged: (onChanged) {},
+                                TaskTile(
+                                  taskName: "Taking my Assignment",
+                                  isTaskChecked: false,
+                                  onPressingTask: (isTaskChecked) {},
                                 ),
-                              ),
-                              ListTile(
-                                leading: Icon(Icons.map),
-                                title: Text('Map'),
-                                trailing: Checkbox(
-                                  value: true,
-                                  onChanged: (onChanged) {},
+                                TaskTile(
+                                  taskName: "Taking my Assignment",
+                                  isTaskChecked: false,
+                                  onPressingTask: (isTaskChecked) {},
                                 ),
-                              ),
-                              ListTile(
-                                leading: Icon(Icons.photo_album),
-                                title: Text('Album'),
-                                trailing: Checkbox(
-                                  value: true,
-                                  onChanged: (onChanged) {},
+                                TaskTile(
+                                  taskName: "Taking my Assignment",
+                                  isTaskChecked: false,
+                                  onPressingTask: (isTaskChecked) {},
                                 ),
-                              ),
-                              ListTile(
-                                leading: Icon(Icons.phone),
-                                title: Text('Phone'),
-                                trailing: Checkbox(
-                                  value: false,
-                                  onChanged: (onChanged) {},
+                                TaskTile(
+                                  taskName: "Taking my Assignment",
+                                  isTaskChecked: false,
+                                  onPressingTask: (isTaskChecked) {},
                                 ),
-                              ),
-                              ListTile(
-                                leading: Icon(Icons.map),
-                                title: Text('Map'),
-                                trailing: Checkbox(
-                                  value: true,
-                                  onChanged: (onChanged) {},
-                                ),
-                              ),
-                              ListTile(
-                                leading: Icon(Icons.photo_album),
-                                title: Text('Album'),
-                                trailing: Checkbox(
-                                  value: true,
-                                  onChanged: (onChanged) {},
-                                ),
-                              ),
-                              ListTile(
-                                leading: Icon(Icons.phone),
-                                title: Text('Phone'),
-                                trailing: Checkbox(
-                                  value: false,
-                                  onChanged: (onChanged) {},
-                                ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            SizedBox(
-                              width: 10.0,
-                            ),
                             MyCustomizedButton(
                               buttonIcon: Icons.add,
                               whenPressed: () {},
