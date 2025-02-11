@@ -8,7 +8,7 @@ class Task extends StatefulWidget {
       required this.onPressingTask});
 
   final bool? isTaskChecked;
-  final String taskName;
+  final Title taskName;
   final void Function(bool?) onPressingTask;
 
   @override
@@ -18,20 +18,9 @@ class Task extends StatefulWidget {
 class _TaskState extends State<Task> {
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Expanded(
-          flex: 1,
-          child: Text(
-            widget.taskName,
-            style: TextStyle(fontSize: 25.0),
-            overflow: TextOverflow.ellipsis,
-            maxLines: 1,
-          ),
-        ),
-        Checkbox(value: widget.isTaskChecked, onChanged: widget.onPressingTask),
-      ],
+    return ListTile(
+      title: widget.taskName,
+      trailing: widget.isTaskChecked,
     );
   }
 }

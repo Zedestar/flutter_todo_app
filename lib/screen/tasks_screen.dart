@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/components/customezed_button.dart';
 import 'package:todo_app/components/expanded_widget.dart';
-import 'package:todo_app/components/task.dart';
+import 'package:todo_app/components/task_tile.dart';
 
 class TasksScreen extends StatefulWidget {
   const TasksScreen({super.key});
@@ -84,97 +84,116 @@ class _TasksScreenState extends State<TasksScreen> {
                   ),
                   color: Colors.white,
                   child: Padding(
-                    padding: const EdgeInsets.all(50.0),
+                    padding: const EdgeInsets.only(
+                      top: 30.0,
+                      left: 30,
+                      right: 30,
+                      bottom: 10,
+                    ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Expanded(
                           child: ListView(
-                            children: [
-                              Task(
-                                taskName: "Task 1",
-                                isTaskChecked: true,
-                                onPressingTask: (value) {},
+                            children: <Widget>[
+                              ListTile(
+                                leading: Icon(Icons.map),
+                                title: Text('Map'),
+                                trailing: Checkbox(
+                                  value: true,
+                                  onChanged: (bool? value) {
+                                    value = false;
+                                    print("On changed button was pressed");
+                                  },
+                                ),
                               ),
-                              SizedBox(
-                                height: 10.0,
+                              ListTile(
+                                leading: Icon(Icons.photo_album),
+                                title: Text('Album'),
+                                trailing: Checkbox(
+                                  value: true,
+                                  onChanged: (onChanged) {},
+                                ),
                               ),
-                              Task(
-                                taskName: "I will buy eggs",
-                                isTaskChecked: false,
-                                onPressingTask: (value) {},
+                              ListTile(
+                                leading: Icon(Icons.phone),
+                                title: Text('Phone'),
+                                trailing: Checkbox(
+                                  value: false,
+                                  onChanged: (onChanged) {},
+                                ),
                               ),
-                              SizedBox(
-                                height: 10.0,
+                              ListTile(
+                                leading: Icon(Icons.map),
+                                title: Text('Map'),
+                                trailing: Checkbox(
+                                  value: true,
+                                  onChanged: (onChanged) {},
+                                ),
                               ),
-                              Task(
-                                taskName: "I will do some flutter project",
-                                isTaskChecked: true,
-                                onPressingTask: (value) {
-                                  print(
-                                    'The current value is  $value',
-                                  );
-                                },
+                              ListTile(
+                                leading: Icon(Icons.photo_album),
+                                title: Text('Album'),
+                                trailing: Checkbox(
+                                  value: true,
+                                  onChanged: (onChanged) {},
+                                ),
                               ),
-                              SizedBox(
-                                height: 10.0,
+                              ListTile(
+                                leading: Icon(Icons.phone),
+                                title: Text('Phone'),
+                                trailing: Checkbox(
+                                  value: false,
+                                  onChanged: (onChanged) {},
+                                ),
                               ),
-                              Task(
-                                taskName: "I will do some flutter project",
-                                isTaskChecked: true,
-                                onPressingTask: (value) {
-                                  print(
-                                    'The current value is  $value',
-                                  );
-                                },
+                              ListTile(
+                                leading: Icon(Icons.map),
+                                title: Text('Map'),
+                                trailing: Checkbox(
+                                  value: true,
+                                  onChanged: (onChanged) {},
+                                ),
                               ),
-                              SizedBox(
-                                height: 10.0,
+                              ListTile(
+                                leading: Icon(Icons.photo_album),
+                                title: Text('Album'),
+                                trailing: Checkbox(
+                                  value: true,
+                                  onChanged: (onChanged) {},
+                                ),
                               ),
-                              Task(
-                                taskName: "I will do some flutter project",
-                                isTaskChecked: true,
-                                onPressingTask: (value) {
-                                  print(
-                                    'The current value is  $value',
-                                  );
-                                },
+                              ListTile(
+                                leading: Icon(Icons.phone),
+                                title: Text('Phone'),
+                                trailing: Checkbox(
+                                  value: false,
+                                  onChanged: (onChanged) {},
+                                ),
                               ),
-                              SizedBox(
-                                height: 10.0,
+                              ListTile(
+                                leading: Icon(Icons.map),
+                                title: Text('Map'),
+                                trailing: Checkbox(
+                                  value: true,
+                                  onChanged: (onChanged) {},
+                                ),
                               ),
-                              Task(
-                                taskName: "I will do some flutter project",
-                                isTaskChecked: true,
-                                onPressingTask: (value) {
-                                  print(
-                                    'The current value is  $value',
-                                  );
-                                },
+                              ListTile(
+                                leading: Icon(Icons.photo_album),
+                                title: Text('Album'),
+                                trailing: Checkbox(
+                                  value: true,
+                                  onChanged: (onChanged) {},
+                                ),
                               ),
-                              SizedBox(
-                                height: 10.0,
-                              ),
-                              Task(
-                                taskName: "I will do some flutter project",
-                                isTaskChecked: true,
-                                onPressingTask: (value) {
-                                  print(
-                                    'The current value is  $value',
-                                  );
-                                },
-                              ),
-                              SizedBox(
-                                height: 10.0,
-                              ),
-                              Task(
-                                taskName: "I will do some flutter project",
-                                isTaskChecked: true,
-                                onPressingTask: (value) {
-                                  print(
-                                    'The current value is  $value',
-                                  );
-                                },
+                              ListTile(
+                                leading: Icon(Icons.phone),
+                                title: Text('Phone'),
+                                trailing: Checkbox(
+                                  value: false,
+                                  onChanged: (onChanged) {},
+                                ),
                               ),
                             ],
                           ),
