@@ -88,35 +88,96 @@ class _TasksScreenState extends State<TasksScreen> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Task(
-                              taskName: "Task 1",
-                              isTaskChecked: true,
-                              onPressingTask: (value) {},
-                            ),
-                            SizedBox(
-                              height: 10.0,
-                            ),
-                            Task(
-                              taskName: "I will buy eggs",
-                              isTaskChecked: false,
-                              onPressingTask: (value) {},
-                            ),
-                            SizedBox(
-                              height: 10.0,
-                            ),
-                            Task(
-                              taskName: "I will do some flutter project",
-                              isTaskChecked: true,
-                              onPressingTask: (value) {
-                                print(
-                                  'The current value is  $value',
-                                );
-                              },
-                            ),
-                          ],
+                        Expanded(
+                          child: ListView(
+                            children: [
+                              Task(
+                                taskName: "Task 1",
+                                isTaskChecked: true,
+                                onPressingTask: (value) {},
+                              ),
+                              SizedBox(
+                                height: 10.0,
+                              ),
+                              Task(
+                                taskName: "I will buy eggs",
+                                isTaskChecked: false,
+                                onPressingTask: (value) {},
+                              ),
+                              SizedBox(
+                                height: 10.0,
+                              ),
+                              Task(
+                                taskName: "I will do some flutter project",
+                                isTaskChecked: true,
+                                onPressingTask: (value) {
+                                  print(
+                                    'The current value is  $value',
+                                  );
+                                },
+                              ),
+                              SizedBox(
+                                height: 10.0,
+                              ),
+                              Task(
+                                taskName: "I will do some flutter project",
+                                isTaskChecked: true,
+                                onPressingTask: (value) {
+                                  print(
+                                    'The current value is  $value',
+                                  );
+                                },
+                              ),
+                              SizedBox(
+                                height: 10.0,
+                              ),
+                              Task(
+                                taskName: "I will do some flutter project",
+                                isTaskChecked: true,
+                                onPressingTask: (value) {
+                                  print(
+                                    'The current value is  $value',
+                                  );
+                                },
+                              ),
+                              SizedBox(
+                                height: 10.0,
+                              ),
+                              Task(
+                                taskName: "I will do some flutter project",
+                                isTaskChecked: true,
+                                onPressingTask: (value) {
+                                  print(
+                                    'The current value is  $value',
+                                  );
+                                },
+                              ),
+                              SizedBox(
+                                height: 10.0,
+                              ),
+                              Task(
+                                taskName: "I will do some flutter project",
+                                isTaskChecked: true,
+                                onPressingTask: (value) {
+                                  print(
+                                    'The current value is  $value',
+                                  );
+                                },
+                              ),
+                              SizedBox(
+                                height: 10.0,
+                              ),
+                              Task(
+                                taskName: "I will do some flutter project",
+                                isTaskChecked: true,
+                                onPressingTask: (value) {
+                                  print(
+                                    'The current value is  $value',
+                                  );
+                                },
+                              ),
+                            ],
+                          ),
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
