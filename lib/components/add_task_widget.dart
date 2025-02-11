@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/model/task_structure.dart';
 
-class BottomTaskAdd extends StatelessWidget {
+class BottomTaskAdd extends StatefulWidget {
   const BottomTaskAdd({super.key});
 
   @override
+  State<BottomTaskAdd> createState() => _BottomTaskAddState();
+}
+
+class _BottomTaskAddState extends State<BottomTaskAdd> {
+  @override
   Widget build(BuildContext context) {
+    String taskName = '';
+    List<TaskStructure> taskList = [];
+
     return Container(
       padding: EdgeInsets.symmetric(
         horizontal: 50.0,
@@ -43,6 +52,9 @@ class BottomTaskAdd extends StatelessWidget {
                 ),
               ),
             ),
+            onChanged: (value) {
+              taskName = value;
+            },
           ),
           SizedBox(
             height: 20.0,
@@ -64,7 +76,9 @@ class BottomTaskAdd extends StatelessWidget {
                 40,
               ),
             ),
-            onPressed: null,
+            onPressed: () {
+              if (taskName.isEmpty) {}
+            },
             child: Text(
               "Add",
               style: TextStyle(

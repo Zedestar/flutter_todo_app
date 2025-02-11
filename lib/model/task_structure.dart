@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 
 class TaskStructure {
-  late final String TaskName;
+  TaskStructure({required this.taskName, required this.isItDone});
+
+  late final String taskName;
   late bool isItDone;
+
+  void togglingTheTask() {
+    isItDone = !isItDone;
+  }
 }
