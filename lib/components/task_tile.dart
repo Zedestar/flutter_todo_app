@@ -24,7 +24,10 @@ class _TaskTileState extends State<TaskTile> {
           fontSize: 18.0,
         ),
       ),
-      titleTextStyle: TextStyle(fontSize: 20.0),
+      titleTextStyle: TextStyle(
+        decoration: (isTaskCheck ?? false) ? TextDecoration.lineThrough : null,
+        fontSize: 20.0,
+      ),
       trailing: Checkbox(
         value: isTaskCheck,
         onChanged: (newValue) {
