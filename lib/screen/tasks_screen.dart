@@ -13,6 +13,15 @@ class TasksScreen extends StatefulWidget {
 
 class _TasksScreenState extends State<TasksScreen> {
   List<TaskStructure> taskList = [];
+  void addTaskFunction(String taskName) {
+    TaskStructure newTask = TaskStructure(
+      taskName: taskName,
+      isItDone: false,
+    );
+    setState(() {
+      taskList.add(newTask);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -98,7 +107,10 @@ class _TasksScreenState extends State<TasksScreen> {
                                     taskName: taskList[index].taskName,
                                     isJobDone: taskList[index].isItDone,
                                     onChange: (value) {
-                                      taskList[index].togglingTheTask();
+                                      setState(() {
+                                        // taskList[index].togglingTheTask();
+                                        taskList[index].isItDone = value;
+                                      });
                                     },
                                   );
                                 }),
@@ -113,6 +125,7 @@ class _TasksScreenState extends State<TasksScreen> {
                                 showModalBottomSheet(
                                   context: context,
                                   builder: (context) => BottomTaskAdd(
+                                    addTaskFunction: addTaskFunction,
                                     taskList: taskList,
                                   ),
                                 );

@@ -4,9 +4,11 @@ import 'package:todo_app/constants.dart';
 import 'package:todo_app/model/task_structure.dart';
 
 class BottomTaskAdd extends StatefulWidget {
-  const BottomTaskAdd({super.key, required this.taskList});
+  const BottomTaskAdd(
+      {super.key, required this.taskList, required this.addTaskFunction});
 
   final List<TaskStructure> taskList;
+  final void Function(String) addTaskFunction;
 
   @override
   State<BottomTaskAdd> createState() => _BottomTaskAddState();
@@ -61,17 +63,18 @@ class _BottomTaskAddState extends State<BottomTaskAdd> {
                   textColor: Colors.white38,
                 );
               } else {
-                TaskStructure newTask = TaskStructure(
-                  taskName: taskName,
-                  isItDone: false,
-                );
-                widget.taskList.add(newTask);
+                // TaskStructure newTask = TaskStructure(
+                //   taskName: taskName,
+                //   isItDone: false,
+                // );
+                // widget.taskList.add(newTask);
+                widget.addTaskFunction(taskName);
                 theDialog(
                   context: context,
                   backgroundColor: Colors.lightBlueAccent,
                   title: "Successfully",
                   content: "$taskName is successfully added",
-                  textColor: Colors.white38,
+                  textColor: Colors.white,
                 );
                 resettingTheInputWidget.clear();
                 setState(() {
