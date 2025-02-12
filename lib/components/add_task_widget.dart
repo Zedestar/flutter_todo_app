@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/components/alert_dialog.dart';
 import 'package:todo_app/model/task_structure.dart';
 
 class BottomTaskAdd extends StatefulWidget {
@@ -77,7 +78,9 @@ class _BottomTaskAddState extends State<BottomTaskAdd> {
               ),
             ),
             onPressed: () {
-              if (taskName.isEmpty) {}
+              if (taskName.isEmpty) {
+                myAlertDialog(context);
+              }
             },
             child: Text(
               "Add",
