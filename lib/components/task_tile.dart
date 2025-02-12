@@ -4,16 +4,19 @@ class TaskTile extends StatefulWidget {
   const TaskTile({
     super.key,
     required this.taskName,
+    required this.isJobDone,
   });
 
   final String taskName;
+  final bool? isJobDone;
+  final void Function(bool?) onChange;
 
   @override
   State<TaskTile> createState() => _TaskTileState();
 }
 
 class _TaskTileState extends State<TaskTile> {
-  bool? isTaskCheck = true;
+  // bool? isTaskCheck = true;
   @override
   Widget build(BuildContext context) {
     return ListTile(
@@ -25,16 +28,13 @@ class _TaskTileState extends State<TaskTile> {
         ),
       ),
       titleTextStyle: TextStyle(
-        decoration: (isTaskCheck ?? false) ? TextDecoration.lineThrough : null,
+        decoration:
+            (widget.isJobDone ?? false) ? TextDecoration.lineThrough : null,
         fontSize: 20.0,
       ),
       trailing: Checkbox(
-        value: isTaskCheck,
-        onChanged: (newValue) {
-          setState(() {
-            isTaskCheck = newValue;
-          });
-        },
+        value: widget.isJobDone,
+        onChanged: widget.onChange,
       ),
     );
   }

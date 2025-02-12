@@ -96,6 +96,7 @@ class _TasksScreenState extends State<TasksScreen> {
                                 itemBuilder: (context, index) {
                                   return TaskTile(
                                     taskName: taskList[index].taskName,
+                                    isJobDone: taskList[index].isItDone,
                                   );
                                 }),
                           ),
