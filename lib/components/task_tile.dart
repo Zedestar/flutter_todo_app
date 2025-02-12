@@ -5,6 +5,7 @@ class TaskTile extends StatefulWidget {
     super.key,
     required this.taskName,
     required this.isJobDone,
+    required this.onChange,
   });
 
   final String taskName;
