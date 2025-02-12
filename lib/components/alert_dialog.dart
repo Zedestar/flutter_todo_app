@@ -1,12 +1,27 @@
 import 'package:flutter/material.dart';
 
-void myAlertDialog(BuildContext context) {
+void theDialog({
+  required BuildContext context,
+  required Color backgroundColor,
+  required String title,
+  required Color textColor,
+  required String content,
+}) {
   showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text("Error"),
-          content: Text("Task name cannot be empty"),
+          backgroundColor: backgroundColor,
+          title: Text(
+            title,
+            style: TextStyle(color: textColor),
+          ),
+          content: Text(
+            content,
+            style: TextStyle(
+              color: textColor,
+            ),
+          ),
           actions: [
             TextButton(
               onPressed: () {

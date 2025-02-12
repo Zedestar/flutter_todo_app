@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:todo_app/components/add_task_widget.dart';
 import 'package:todo_app/components/customezed_button.dart';
 import 'package:todo_app/components/task_tile.dart';
+import 'package:todo_app/model/task_structure.dart';
 
 class TasksScreen extends StatefulWidget {
   const TasksScreen({super.key});
@@ -11,17 +12,7 @@ class TasksScreen extends StatefulWidget {
 }
 
 class _TasksScreenState extends State<TasksScreen> {
-  bool? isChecked = true;
-
-  void togglingCheckedButton(bool? value) {
-    setState(() {
-      if (value == true) {
-        isChecked = false;
-      } else {
-        isChecked = true;
-      }
-    });
-  }
+  List<TaskStructure> taskList = [];
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +34,12 @@ class _TasksScreenState extends State<TasksScreen> {
                       children: [
                         MyCustomizedButton(
                           buttonIcon: Icons.menu,
-                          whenPressed: () {},
+                          whenPressed: () {
+                            for (int i = 0; i < taskList.length; i++) {
+                              print(
+                                  "Task no $i with taskName ${taskList[i].taskName}");
+                            }
+                          },
                           backgroundColor: Colors.white,
                           iconColor: Colors.lightBlueAccent,
                         ),
@@ -95,16 +91,13 @@ class _TasksScreenState extends State<TasksScreen> {
                       children: [
                         Expanded(
                           child: Scrollbar(
-                            child: ListView(
-                              children: <Widget>[
-                                TaskTile(
-                                  taskName: "Taking my Assignment",
-                                ),
-                                TaskTile(
-                                  taskName: "Taking my Assignment",
-                                ),
-                              ],
-                            ),
+                            child: ListView.builder(
+                                itemCount: taskList.length,
+                                itemBuilder: (context, index) {
+                                  return TaskTile(
+                                    taskName: taskList[index].taskName,
+                                  );
+                                }),
                           ),
                         ),
                         Row(
@@ -115,7 +108,9 @@ class _TasksScreenState extends State<TasksScreen> {
                               whenPressed: () {
                                 showModalBottomSheet(
                                   context: context,
-                                  builder: (context) => BottomTaskAdd(),
+                                  builder: (context) => BottomTaskAdd(
+                                    taskList: taskList,
+                                  ),
                                 );
                               },
                               backgroundColor: Colors.lightBlueAccent,

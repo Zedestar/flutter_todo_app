@@ -1,20 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/components/alert_dialog.dart';
+import 'package:todo_app/constants.dart';
 import 'package:todo_app/model/task_structure.dart';
 
 class BottomTaskAdd extends StatefulWidget {
-  const BottomTaskAdd({super.key});
+  const BottomTaskAdd({super.key, required this.taskList});
+
+  final List<TaskStructure> taskList;
 
   @override
   State<BottomTaskAdd> createState() => _BottomTaskAddState();
 }
 
 class _BottomTaskAddState extends State<BottomTaskAdd> {
+  late String taskName;
+
+  late TextEditingController resettingTheInputWidget = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    String taskName = '';
-    List<TaskStructure> taskList = [];
-
     return Container(
       padding: EdgeInsets.symmetric(
         horizontal: 50.0,
@@ -34,52 +38,48 @@ class _BottomTaskAddState extends State<BottomTaskAdd> {
             height: 10.0,
           ),
           TextField(
-            decoration: InputDecoration(
-              hintText: "Add here the task to be added",
-              hintStyle: TextStyle(
-                fontSize: 15,
-              ),
-              enabledBorder: UnderlineInputBorder(
-                borderSide: BorderSide(
-                  color: Colors.lightBlueAccent,
-                  width: 1.0,
-                ),
-              ),
-              focusedBorder: UnderlineInputBorder(
-                borderSide: BorderSide(
-                  color: Colors.lightBlueAccent,
-                  width: 2.0,
-                  style: BorderStyle.solid,
-                ),
-              ),
-            ),
+            controller: resettingTheInputWidget,
+            decoration: kTextFieldDecorationStyles,
             onChanged: (value) {
-              taskName = value;
+              setState(() {
+                taskName = value;
+              });
             },
           ),
           SizedBox(
             height: 20.0,
           ),
           TextButton(
-            style: TextButton.styleFrom(
-              backgroundColor: Colors.lightBlueAccent,
-              foregroundColor: Colors.white,
-              padding: EdgeInsets.symmetric(
-                vertical: 10.0,
-              ),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(2),
-                ),
-              ),
-              minimumSize: Size(
-                300,
-                40,
-              ),
-            ),
+            style: kTextButtomStyles,
             onPressed: () {
               if (taskName.isEmpty) {
-                myAlertDialog(context);
+                theDialog(
+                  context: context,
+                  backgroundColor: Colors.black87,
+                  title: "Error",
+                  content: "Task name can't be empty",
+                  textColor: Colors.white38,
+                );
+              } else {
+                TaskStructure newTask = TaskStructure(
+                  taskName: taskName,
+                  isItDone: false,
+                );
+                widget.taskList.add(newTask);
+                theDialog(
+                  context: context,
+                  backgroundColor: Colors.lightBlueAccent,
+                  title: "Successfully",
+                  content: "$taskName is successfully added",
+                  textColor: Colors.white38,
+                );
+                resettingTheInputWidget.clear();
+                setState(() {
+                  taskName = '';
+                });
+                for (int i = 0; i < widget.taskList.length; i++) {
+                  print("This is task $i ${widget.taskList[i].taskName}");
+                }
               }
             },
             child: Text(
