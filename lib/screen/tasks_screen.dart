@@ -97,6 +97,9 @@ class _TasksScreenState extends State<TasksScreen> {
                                   return TaskTile(
                                     taskName: taskList[index].taskName,
                                     isJobDone: taskList[index].isItDone,
+                                    onChange: (value) {
+                                      taskList[index].togglingTheTask();
+                                    },
                                   );
                                 }),
                           ),
