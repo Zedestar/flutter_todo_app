@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:todo_app/components/alert_dialog.dart';
 import 'package:todo_app/constants.dart';
 import 'package:todo_app/model/task_structure.dart';
+import 'package:todo_app/providers/taskList_provider.dart';
 
 class BottomTaskAdd extends StatefulWidget {
-  const BottomTaskAdd(
-      {super.key, required this.taskList, required this.addTaskFunction});
+  const BottomTaskAdd({
+    super.key,
+    // required this.taskList,
+    // required this.addTaskFunction,
+  });
 
-  final List<TaskStructure> taskList;
-  final void Function(String) addTaskFunction;
+  // final List<TaskStructure> taskList;
+  // final void Function(String) addTaskFunction;
 
   @override
   State<BottomTaskAdd> createState() => _BottomTaskAddState();
@@ -21,6 +26,8 @@ class _BottomTaskAddState extends State<BottomTaskAdd> {
 
   @override
   Widget build(BuildContext context) {
+    final taskListProvider =
+        Provider.of<TasklistProvider>(context, listen: false);
     return Container(
       padding: EdgeInsets.symmetric(
         horizontal: 50.0,
@@ -63,12 +70,7 @@ class _BottomTaskAddState extends State<BottomTaskAdd> {
                   textColor: Colors.white38,
                 );
               } else {
-                // TaskStructure newTask = TaskStructure(
-                //   taskName: taskName,
-                //   isItDone: false,
-                // );
-                // widget.taskList.add(newTask);
-                widget.addTaskFunction(taskName);
+                taskListProvider.addTaskInTaskList(taskName);
                 theDialog(
                   context: context,
                   backgroundColor: Colors.lightBlueAccent,
@@ -80,9 +82,6 @@ class _BottomTaskAddState extends State<BottomTaskAdd> {
                 setState(() {
                   taskName = '';
                 });
-                for (int i = 0; i < widget.taskList.length; i++) {
-                  print("This is task $i ${widget.taskList[i].taskName}");
-                }
               }
             },
             child: Text(

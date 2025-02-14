@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:todo_app/components/add_task_widget.dart';
 import 'package:todo_app/components/customezed_button.dart';
 import 'package:todo_app/components/task_tile.dart';
-import 'package:todo_app/model/task_structure.dart';
+import 'package:todo_app/providers/taskList_provider.dart';
 
 class TasksScreen extends StatefulWidget {
   const TasksScreen({super.key});
@@ -12,19 +13,24 @@ class TasksScreen extends StatefulWidget {
 }
 
 class _TasksScreenState extends State<TasksScreen> {
-  List<TaskStructure> taskList = [];
-  void addTaskFunction(String taskName) {
-    TaskStructure newTask = TaskStructure(
-      taskName: taskName,
-      isItDone: false,
-    );
-    setState(() {
-      taskList.add(newTask);
-    });
-  }
+  // List<TaskStructure> taskList = [];
+  // void addTaskFunction(String taskName) {
+  //   TaskStructure newTask = TaskStructure(
+  //     taskName: taskName,
+  //     isItDone: false,
+  //   );
+  //   setState(() {
+  //     taskList.add(newTask);
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
+    print("The buidl is rebuild mamamamamamammama");
+    final taskListProvider = Provider.of<TasklistProvider>(
+      context,
+      listen: false,
+    );
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -44,9 +50,11 @@ class _TasksScreenState extends State<TasksScreen> {
                         MyCustomizedButton(
                           buttonIcon: Icons.menu,
                           whenPressed: () {
-                            for (int i = 0; i < taskList.length; i++) {
+                            for (int i = 0;
+                                i < taskListProvider.getTaskList.length;
+                                i++) {
                               print(
-                                  "Task no $i with taskName ${taskList[i].taskName}");
+                                  "Task no $i with taskName ${taskListProvider.getTaskList[i].taskName}");
                             }
                           },
                           backgroundColor: Colors.white,
@@ -99,21 +107,28 @@ class _TasksScreenState extends State<TasksScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Expanded(
-                          child: Scrollbar(
-                            child: ListView.builder(
-                                itemCount: taskList.length,
-                                itemBuilder: (context, index) {
-                                  return TaskTile(
-                                    taskName: taskList[index].taskName,
-                                    isJobDone: taskList[index].isItDone,
-                                    onChange: (value) {
-                                      setState(() {
-                                        // taskList[index].togglingTheTask();
-                                        taskList[index].isItDone = value;
-                                      });
-                                    },
-                                  );
-                                }),
+                          child: Consumer<TasklistProvider>(
+                            builder: (context, taskListProvider, child) {
+                              return Scrollbar(
+                                child: ListView.builder(
+                                  itemCount:
+                                      taskListProvider.getTaskList.length,
+                                  itemBuilder: (context, index) {
+                                    final task = taskListProvider
+                                        .getTaskList[index]; // Get task once
+
+                                    return TaskTile(
+                                      taskName: task.taskName,
+                                      isJobDone: task.isItDone,
+                                      onChange: (value) {
+                                        taskListProvider
+                                            .toggleTaskStatus(index);
+                                      },
+                                    );
+                                  },
+                                ),
+                              );
+                            },
                           ),
                         ),
                         Row(
@@ -125,9 +140,9 @@ class _TasksScreenState extends State<TasksScreen> {
                                 showModalBottomSheet(
                                   context: context,
                                   builder: (context) => BottomTaskAdd(
-                                    addTaskFunction: addTaskFunction,
-                                    taskList: taskList,
-                                  ),
+                                      // addTaskFunction: addTaskFunction,
+                                      // taskList: taskList,
+                                      ),
                                 );
                               },
                               backgroundColor: Colors.lightBlueAccent,

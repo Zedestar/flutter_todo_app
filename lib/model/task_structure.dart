@@ -4,9 +4,9 @@ class TaskStructure {
   TaskStructure({required this.taskName, required this.isItDone});
 
   late final String taskName;
-  late bool? isItDone;
+  late bool isItDone;
 
   void togglingTheTask() {
-    isItDone = !(isItDone ?? false);
+    isItDone = !isItDone;
   }
 }
