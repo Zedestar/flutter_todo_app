@@ -17,4 +17,9 @@ class TasklistProvider with ChangeNotifier {
     _taskList[index].isItDone = !_taskList[index].isItDone;
     notifyListeners();
   }
+
+  void removeTask(int index) {
+    _taskList.removeAt(index);
+    notifyListeners();
+  }
 }

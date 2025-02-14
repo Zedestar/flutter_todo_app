@@ -120,6 +120,9 @@ class _TasksScreenState extends State<TasksScreen> {
                                     return TaskTile(
                                       taskName: task.taskName,
                                       isJobDone: task.isItDone,
+                                      onLongPress: () {
+                                        taskListProvider.removeTask(index);
+                                      },
                                       onChange: (value) {
                                         taskListProvider
                                             .toggleTaskStatus(index);

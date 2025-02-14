@@ -6,11 +6,13 @@ class TaskTile extends StatefulWidget {
     required this.taskName,
     required this.isJobDone,
     required this.onChange,
+    required this.onLongPress,
   });
 
   final String taskName;
   final bool? isJobDone;
   final void Function(bool?) onChange;
+  final VoidCallback onLongPress;
 
   @override
   State<TaskTile> createState() => _TaskTileState();
@@ -33,6 +35,7 @@ class _TaskTileState extends State<TaskTile> {
             (widget.isJobDone ?? false) ? TextDecoration.lineThrough : null,
         fontSize: 20.0,
       ),
+      onLongPress: widget.onLongPress,
       trailing: Checkbox(
         value: widget.isJobDone,
         onChanged: widget.onChange,
